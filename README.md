@@ -12,7 +12,7 @@ As per the respective frontend framework's specified folder structure of the app
 
 Now all these 15+ API calls are works in a same common pattern but will expect different behaviour/data for each component to work. So, in order to minimize the code lines and make it reusable approach, I wrote a 'JavaScript Closure' and made that service (.js) file as reusable, the same can be used to interact with APIs from each component and also can be used by other co-developers of the application.
 
-```
+```javscript
 // 'A JavaScript Closure' to automate same/similar API calls of the application. (#Included it in service (.js) file)
 processRequest(http, id, apiEndPoint, method, data) {
     var urlEndPoint = apiEndPoint; // API endpoint, which needed to be specified from the tab component
