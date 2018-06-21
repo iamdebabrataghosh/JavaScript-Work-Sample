@@ -1,4 +1,4 @@
-# JavaScript-Work-Sample
+# JavaScript Work Samples
 
 This repository is contained with some snippets which I generally write in my everyday work:
 
