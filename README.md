@@ -12,10 +12,38 @@ As per the respective frontend framework's specified folder structure of the app
 
 Now all these 15+ API calls are works in a same common pattern but will expect different behaviour/data for each component to work. So, in order to minimize the code lines and make it reusable approach, I wrote a 'JavaScript Closure' and made that service (.js) file as reusable, the same can be used to interact with APIs from each component and also can be used by other co-developers of the application.
 
-
-
-
 ```
-echo "hello world";
+// 'A JavaScript Closure' to automate same/similar API calls of the application. (#Included it in service (.js) file)
+processRequest(http, id, apiEndPoint, method, data) {
+    var urlEndPoint = apiEndPoint; // API endpoint, which needed to be specified from the tab component
+    var baseUrl = 'https://example.com/api/v2';
+    function apiRequest() {
+      function getCall() {
+        return http.get(`${baseUrl}/${urlEndPoint}/${id}`).then((response) => {
+          return response.data;
+        }, (error) => { // eslint-disable-line
+          return error;
+        }).catch((exception) => { // eslint-disable-line
+          // Handle exception here
+        });
+      }
+      function postCall() {
+        return http.post(`${baseUrl}/${urlEndPoint}/${id}`, data).then((response) => {
+          return response.data;
+        }, (error) => { // eslint-disable-line
+          return error;
+        }).catch((exception) => { // eslint-disable-line
+          // Handle exception here
+        });
+      }
+      /** Similarly we can also add more HTTP methods (like PUT, DELETE etc.) to support this closure */
+      if (method === 'get' && typeof data === 'undefined') {
+        return getCall();
+      } else if (method === 'post' && typeof data !== 'undefined') {
+        return postCall();
+      }
+    }
+    return apiRequest();
+  }
 
 ```
