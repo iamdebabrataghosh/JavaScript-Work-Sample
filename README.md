@@ -21,18 +21,18 @@ processRequest(http, id, apiEndPoint, method, data) {
       function getCall() {
         return http.get(`${baseUrl}/${urlEndPoint}/${id}`).then((response) => {
           return response.data;
-        }, (error) => { // eslint-disable-line
+        }, (error) => {
           return error;
-        }).catch((exception) => { // eslint-disable-line
+        }).catch((exception) => {
           // Handle exception here
         });
       }
       function postCall() {
         return http.post(`${baseUrl}/${urlEndPoint}/${id}`, data).then((response) => {
           return response.data;
-        }, (error) => { // eslint-disable-line
+        }, (error) => {
           return error;
-        }).catch((exception) => { // eslint-disable-line
+        }).catch((exception) => {
           // Handle exception here
         });
       }
@@ -46,4 +46,28 @@ processRequest(http, id, apiEndPoint, method, data) {
     return apiRequest();
   }
 
+```
+
+Then for each tab UI component API calls wrote the simple methods as below:
+
+```javascript
+
+  /* API endpoints for Investigations Tab */
+  // Functionality for Tab1 - Add
+  addTabInfo(http, id, data) {
+    const urlEndPoint = 'addtabdata';
+    const method = 'post';
+    return processRequest(http, id, urlEndPoint, method, data);
+  },
+  // Investigation Tab - Get
+  fetchTabInfo(http, id) {
+    const urlEndPoint = 'gettabdata';
+    const method = 'get';
+    return processRequest(http, id, urlEndPoint, method);
+  },
+  // Similarly I added methods in service (.js) file for api calls of each tab by using the 'Generic' function processRequest() to automate similar calls with less code
+  .
+  .
+  .
+  
 ```
