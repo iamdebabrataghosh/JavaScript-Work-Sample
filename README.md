@@ -1,6 +1,6 @@
 # JavaScript Work Samples
 
-This repository is contained with some snippets which I generally write in my everyday work:
+This repository is contained with some code snippets which I generally write in my everyday work:
 
 #1_Task:
 
