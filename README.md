@@ -52,7 +52,7 @@ Then for each tab UI component API calls wrote the simple methods as below:
 
 ```javascript
 
-  /* API endpoints for Investigations Tab */
+  /* API endpoints for Tab1 */
   // Functionality for Tab1 - Add
   addTabInfo(http, id, data) {
     const urlEndPoint = 'addtabdata';
